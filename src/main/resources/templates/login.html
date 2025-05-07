@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="/static/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <style>
+        /* 공통 스타일 */
+        body {
+            background-color: #f7f7f7;
+        }
+
+        /* 전체 레이아웃 컨테이너 */
+        .container {
+            display: flex;  /* 사이드바와 메인 콘텐츠를 나란히 배치 */
+            height: 100vh;  /* 화면 전체 높이 사용 */
+        }
+
+
+        /* 메인 콘텐츠 영역 */
+        .main-content {
+            margin-left: 200px; /* 사이드바 너비만큼 콘텐츠를 오른쪽으로 밀기 */
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #f7f7f7;  /* 배경색 */
+            padding: 20px; /* 내부 여백 */
+        }
+
+
+        /* 로그인 스타일 */
+        .login-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-container input, .login-container button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .login-container button {
+            background-color: #007acc;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-container button:hover {
+            background-color: #005fa3;
+        }
+
+        .social-login {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .social-login a {
+            display: block;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+        }
+        .kakao-login {
+            background-color: #FEE500;
+            color: #3C1E1E;
+        }
+        .naver-login {
+            background-color: #03C75A;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <a href="main"><img src="/images/logo.jpg" alt="경기도 로고"></a>
+        </div>
+        <div class="profile">
+            <div class="mypage-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                </svg>
+            </div>
+            <a href="/mypage"><span>마이페이지</span></a>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="main">메인페이지</a>
+            <a href="performance">공연행사</a>
+            <a href="education">교육행사</a>
+            <a href="culture">문화행사</a>
+            <a href="exhibition">전시행사</a>
+        </nav>
+        <div class="footer">
+            <img src="/images/banner2.png" alt="변화의 중심, 기회의 경기">
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Top Navigation -->
+        <header class="top-nav">
+            <nav>
+                <a href="main">메인페이지</a>
+                <a href="performance">공연행사</a>
+                <a href="education">교육행사</a>
+                <a href="culture">문화행사</a>
+                <a href="exhibition">전시행사</a>
+                <a href="customer">고객 센터</a>
+            </nav>
+            <div class="auth" id="authSection">
+                <a href="login"><span>로그인 / 회원가입</span></a>
+            </div>
+        </header>
+
+        <div class="login-container">
+            <h2>로그인</h2>
+            <form action="/login" method="post">
+                <label for="username">아이디</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">비밀번호</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">로그인</button>
+            </form>
+            <div class="social-login">
+                <a href="#미구현" class="kakao-login">카카오로 로그인</a>
+                <a href="#미구현" class="naver-login">네이버로 로그인</a>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                계정이 없으신가요? <a href="/register">회원가입</a>
+            </div>
+        </div>
+    </main>
+</div>
+
+</body>
+</html>
